@@ -270,7 +270,7 @@ export function renderizar(c) {
   <meta property="og:type" content="website">
   <meta property="og:title" content="${esc(c.marca.nome)}">
   <meta property="og:description" content="${esc(c.marca.descricao)}">
-  <meta property="og:image" content="${esc((c.marca.endereco || '').replace(/\/$/, '') + c.marca.imagemCompartilhar)}">${
+  <meta property="og:image" content="${esc(c.marca.endereco ? `${c.marca.endereco.replace(/\/$/, '')}/${c.marca.imagemCompartilhar.replace(/^\//, '')}` : c.marca.imagemCompartilhar)}">${
     c.marca.endereco ? `\n  <meta property="og:url" content="${esc(c.marca.endereco)}">` : ''
   }
   <meta name="theme-color" content="#12100d">

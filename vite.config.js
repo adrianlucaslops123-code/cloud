@@ -19,6 +19,8 @@ function pagina() {
 }
 
 export default defineConfig({
+  // caminhos relativos: o dist/ funciona na raiz de um domínio ou numa subpasta
+  base: './',
   plugins: [pagina()],
   optimizeDeps: { entries: ['index.html'] },
   build: { target: 'es2020', assetsInlineLimit: 0 },

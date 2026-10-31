@@ -18,7 +18,7 @@ export default {
     tituloPagina: 'Chalé do Vale · chalé em A na serra',
     descricao:
       'Chalé em A de madeira e aço preto, com jacuzzi, deck e fogueira, de frente para o vale.',
-    imagemCompartilhar: '/og.jpg',
+    imagemCompartilhar: 'og.jpg',
     endereco: '', // endereço do site publicado (ex.: 'https://chaledovale.com.br'), para a prévia do link
   },
 
@@ -63,8 +63,8 @@ export default {
         telas: 1.3,
         segundos: 2,
         foto: {
-          desktop: '/fotos/externo/jacuzzi-vale-dia.webp',
-          mobile: '/fotos/externo/deck-dia.webp',
+          desktop: 'fotos/externo/jacuzzi-vale-dia.webp',
+          mobile: 'fotos/externo/deck-dia.webp',
         },
         descricao:
           'A jacuzzi sob o pergolado de madeira, de frente para o vale e a serra, numa tarde de sol.',
@@ -83,7 +83,7 @@ export default {
         grande: true,
         telas: 1.5,
         segundos: 2,
-        foto: { desktop: '/fotos/interno/sala.webp', mobile: '/fotos/interno/sala.webp' },
+        foto: { desktop: 'fotos/interno/sala.webp', mobile: 'fotos/interno/sala.webp' },
         descricao:
           'A sala: sofá de linho, tapete redondo de couro, mesa para dois e a cozinha ao fundo, sob a parede de madeira do A.',
         camera: {
@@ -98,7 +98,7 @@ export default {
         posicao: 'pe-dir',
         telas: 1.5,
         segundos: 2,
-        foto: { desktop: '/fotos/interno/cozinha.webp', mobile: '/fotos/interno/cozinha.webp' },
+        foto: { desktop: 'fotos/interno/cozinha.webp', mobile: 'fotos/interno/cozinha.webp' },
         descricao:
           'A cozinha no fundo do A: forro de madeira, frigobar, micro-ondas, air fryer, cafeteira e uma janela pequena.',
         camera: {
@@ -113,7 +113,7 @@ export default {
         posicao: 'alto-esq',
         telas: 1.4,
         segundos: 2,
-        foto: { desktop: '/fotos/interno/banheiro.webp', mobile: '/fotos/interno/banheiro.webp' },
+        foto: { desktop: 'fotos/interno/banheiro.webp', mobile: 'fotos/interno/banheiro.webp' },
         descricao:
           'O banheiro: cuba de pedra sobre bancada de madeira, torneira preta e espelho oval na parede inclinada.',
         camera: {
@@ -129,8 +129,8 @@ export default {
         telas: 1.5,
         segundos: 2,
         foto: {
-          desktop: '/fotos/externo/deck-anoitecer.webp',
-          mobile: '/fotos/externo/deck-anoitecer.webp',
+          desktop: 'fotos/externo/deck-anoitecer.webp',
+          mobile: 'fotos/externo/deck-anoitecer.webp',
         },
         descricao:
           'O deck ao anoitecer: namoradeira, guarda-corpo de ferro iluminado e o pico da serra contra o céu azul.',
@@ -146,8 +146,8 @@ export default {
         telas: 1.4,
         segundos: 2,
         foto: {
-          desktop: '/fotos/externo/jacuzzi-noite.webp',
-          mobile: '/fotos/externo/jacuzzi-noite.webp',
+          desktop: 'fotos/externo/jacuzzi-noite.webp',
+          mobile: 'fotos/externo/jacuzzi-noite.webp',
         },
         descricao:
           'A jacuzzi à noite, iluminada, entre cortinas brancas, com duas taças de vinho na borda de madeira.',
@@ -163,8 +163,8 @@ export default {
         telas: 1.3,
         segundos: 2,
         foto: {
-          desktop: '/fotos/externo/fachada-noite.webp',
-          mobile: '/fotos/externo/fachada-noite.webp',
+          desktop: 'fotos/externo/fachada-noite.webp',
+          mobile: 'fotos/externo/fachada-noite.webp',
         },
         descricao:
           'O chalé aceso à noite: a fachada de vidro em A, o mezanino com a cama sob as lâmpadas, a sala e a jacuzzi ao lado.',
@@ -194,7 +194,7 @@ export default {
       'Sala, mesa e cozinha dividem o térreo, sob o forro de madeira. Uma escada de aço sobe ao mezanino, onde fica a cama; pelo vidro, o deck e a serra.',
     botao: { texto: 'Ver lá fora', alvo: '#fora' },
     foto: {
-      src: '/fotos/interno/escada-vista.webp',
+      src: 'fotos/interno/escada-vista.webp',
       largura: 1062,
       altura: 1327,
       alt: 'Escada de aço com degraus de madeira e, pelo vidro, o deck com a namoradeira e a serra na neblina.',
@@ -218,7 +218,7 @@ export default {
         nome: 'Deck',
         dados: 'Mesa, guarda-sol, namoradeira e churrasqueira portátil',
         foto: {
-          src: '/fotos/externo/deck-guarda-sol.webp',
+          src: 'fotos/externo/deck-guarda-sol.webp',
           largura: 1062,
           altura: 796,
           alt: 'Deck de madeira ao lado do chalé, com mesa, guarda-sol, namoradeira e sofá, de frente para a serra.',
@@ -228,7 +228,7 @@ export default {
         nome: 'Fogueira',
         dados: 'Braseiro e poltronas no gramado',
         foto: {
-          src: '/fotos/externo/fogueira-encosta.webp',
+          src: 'fotos/externo/fogueira-encosta.webp',
           largura: 1062,
           altura: 796,
           alt: 'Braseiro com lenha e duas poltronas no gramado da encosta, abaixo do deck.',
@@ -238,7 +238,7 @@ export default {
         nome: 'Rede suspensa',
         dados: 'Sobre o declive, de frente para o vale',
         foto: {
-          src: '/fotos/externo/rede-neblina.webp',
+          src: 'fotos/externo/rede-neblina.webp',
           largura: 1062,
           altura: 796,
           alt: 'Rede esticada sobre o declive, ao lado de um deck, com o vale coberto de neblina ao fundo.',

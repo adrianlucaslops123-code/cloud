@@ -242,7 +242,8 @@
 
 @media (max-width: 640px) {
   .marco {
-    padding: calc(var(--nav-alto) + 32px) var(--gutter) calc(32px + env(safe-area-inset-bottom));
+    padding: calc(var(--nav-alto) + env(safe-area-inset-top, 0px) + 32px) var(--gutter)
+      calc(32px + env(safe-area-inset-bottom, 0px));
     --veu-forma: 96% 50%;
   }
   .marco--hero {
