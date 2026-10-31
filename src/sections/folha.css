@@ -1,0 +1,236 @@
+/* A saída do voo: a folha clara sobe por cima do último quadro, com um vão
+   em A no meio. O último quadro fica preso atrás e passa por dentro do vão,
+   de baixo para cima. No vão, a janela de aço desenhada como a fachada do
+   chalé. Na página toda de canto vivo, o A é a única diagonal. */
+
+.folha {
+  position: relative;
+  z-index: 2;
+  margin-top: calc(-1 * var(--folha-sobe));
+}
+
+/* a faixa da janela: o fundo da página pintado em volta de um triângulo vazio */
+.folha__janela {
+  position: relative;
+  height: calc(var(--janela-topo) + var(--janela-alto));
+  overflow: hidden;
+  color: var(--tinta);
+}
+.folha__janela::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--pagina);
+  /* retângulo menos o A (evenodd); a base do A passa 1 px do pé da faixa
+     para não coincidir com a borda do retângulo */
+  clip-path: polygon(
+    evenodd,
+    0 0,
+    100% 0,
+    100% 100%,
+    0 100%,
+    0 0,
+    50% var(--janela-topo),
+    calc(50% + var(--janela-largo) / 2) calc(100% + 1px),
+    calc(50% - var(--janela-largo) / 2) calc(100% + 1px),
+    50% var(--janela-topo)
+  );
+}
+
+.janela {
+  position: absolute;
+  top: var(--janela-topo);
+  left: calc(50% - var(--janela-largo) / 2);
+  width: var(--janela-largo);
+  height: var(--janela-alto);
+  pointer-events: none;
+}
+.janela__aco {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.janela__aco * {
+  fill: none;
+  stroke: var(--aco);
+  vector-effect: non-scaling-stroke;
+}
+.janela__caixilho {
+  stroke-width: var(--aco-caixilho);
+  stroke-linejoin: miter;
+  stroke-miterlimit: 12;
+}
+.janela__viga {
+  stroke-width: var(--aco-viga);
+}
+.janela__montante {
+  stroke-width: var(--aco-montante);
+}
+.janela__vidro {
+  stroke-width: var(--aco-vidro);
+}
+.janela__peitoril {
+  position: absolute;
+  left: calc(var(--aco-peitoril) * -0.8);
+  right: calc(var(--aco-peitoril) * -0.8);
+  bottom: 0;
+  height: var(--aco-peitoril);
+  background: var(--aco);
+}
+
+/* os dois textos ao lado do vão, na altura da viga do mezanino */
+.folha__lado {
+  position: absolute;
+  top: calc(var(--janela-topo) + var(--janela-alto) * 0.56);
+  display: grid;
+  gap: 10px;
+  transform: translateY(-50%);
+}
+.folha__lado--esq {
+  right: calc(50% + var(--janela-largo) * 0.28 + clamp(28px, 3.4vw, 56px));
+  text-align: right;
+}
+.folha__lado--dir {
+  left: calc(50% + var(--janela-largo) * 0.28 + clamp(28px, 3.4vw, 56px));
+}
+.folha__lado .rotulo {
+  color: var(--tinta-2);
+}
+.folha__nome {
+  font-size: var(--t-nome);
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .folha__lado {
+    top: calc(var(--janela-topo) / 2);
+    gap: 6px;
+  }
+  .folha__lado--esq {
+    right: auto;
+    left: var(--gutter);
+    text-align: left;
+  }
+  .folha__lado--dir {
+    left: auto;
+    right: var(--gutter);
+    text-align: right;
+  }
+  .folha__nome {
+    font-size: 16px;
+  }
+}
+
+/* ------------------------------------------------------- O chalé --- */
+
+.chale {
+  position: relative;
+  padding: var(--secao-pad) var(--gutter);
+  background: var(--pagina);
+  border-top: 1px solid var(--fio);
+}
+.chale .titulo-secao {
+  margin-bottom: clamp(48px, 7vw, 104px);
+}
+
+.chale__grade {
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 1.05fr) 1fr;
+  gap: clamp(28px, 4vw, 72px);
+  max-width: var(--largura);
+  margin: 0 auto;
+}
+
+.chale__foto {
+  grid-column: 2;
+  grid-row: 1;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--pagina-2);
+}
+.chale__foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.chale__esq {
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 22px;
+  transition-delay: 0.08s;
+}
+.chale__destaque {
+  font-size: var(--t-nome);
+  line-height: 1.25;
+}
+.chale__texto {
+  max-width: 36ch;
+  color: var(--tinta-2);
+}
+.chale__esq .botao {
+  margin-top: 10px;
+}
+
+.chale__dir {
+  grid-column: 3;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 48px;
+  transition-delay: 0.16s;
+}
+.chale__topicos {
+  display: grid;
+}
+.chale__topico {
+  padding: 0 0 22px;
+  border-bottom: 1px solid var(--fio);
+}
+.chale__topico + .chale__topico {
+  padding-top: 22px;
+}
+.chale__topico dt {
+  font-size: var(--t-rotulo);
+  font-weight: 450;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+.chale__topico dd {
+  margin-top: 8px;
+  color: var(--tinta-2);
+}
+
+.chale__numero {
+  display: flex;
+  align-items: flex-end;
+  gap: 18px;
+}
+.chale__valor {
+  font-size: clamp(96px, 8vw + 20px, 168px);
+  font-weight: 200;
+  line-height: 0.74;
+}
+.chale__numero .rotulo {
+  color: var(--tinta-2);
+}
+
+@media (max-width: 900px) {
+  .chale__grade {
+    grid-template-columns: 1fr;
+    max-width: 560px;
+  }
+  .chale__foto,
+  .chale__esq,
+  .chale__dir {
+    grid-column: 1;
+    grid-row: auto;
+  }
+}

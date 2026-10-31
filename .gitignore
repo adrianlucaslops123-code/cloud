@@ -1,0 +1,5 @@
+node_modules/
+dist/
+fotos-fonte/
+public/fotos/hd/
+.DS_Store

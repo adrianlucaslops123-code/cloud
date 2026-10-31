@@ -1,0 +1,278 @@
+/* O voo: o palco fica preso enquanto a seção rola; a folha (próximo
+   elemento) sobe por cima no fim. Contrato de classes com voo.js:
+   .is-vivo, .is-in, .is-antes, .is-saltando, .is-acendendo, .is-imediato,
+   .is-coberto. */
+
+.voo {
+  position: relative;
+  height: calc(var(--telas, 12) * 100vh + var(--folha-sobe));
+  height: calc(var(--telas, 12) * 100svh + var(--folha-sobe));
+  background: var(--palco);
+  color: var(--sobre-foto);
+}
+
+.voo__palco {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.voo__poster,
+.voo__poster img,
+.voo__tela {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.voo__poster img {
+  object-fit: cover;
+  object-position: 50% 42%;
+}
+.voo.is-vivo .voo__poster {
+  visibility: hidden;
+}
+
+.voo__tela,
+.voo__textos {
+  transition: opacity 0.6s ease;
+}
+
+/* um gradiente leve no topo (para a nav) e outro no pé */
+.voo__veu {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(to bottom, rgb(var(--veu) / 0.42), rgb(var(--veu) / 0.12) 12%, rgb(var(--veu) / 0) 24%),
+    linear-gradient(to top, rgb(var(--veu) / 0.26), rgb(var(--veu) / 0) 22%);
+}
+
+.voo__textos {
+  position: absolute;
+  inset: 0;
+}
+
+/* corte: apaga em 0,22 s, acende em 0,6 s */
+.voo.is-saltando .voo__tela,
+.voo.is-saltando .voo__textos {
+  opacity: 0;
+  transition-duration: 0.22s;
+}
+/* a folha cobre a metade de baixo: só a casa passa pela janela */
+.voo.is-coberto .voo__textos {
+  opacity: 0;
+  transition-duration: 0.5s;
+}
+
+/* ---------------------------------------------------------- marcos --- */
+
+.marco {
+  position: absolute;
+  inset: 0;
+  isolation: isolate;
+  display: grid;
+  padding: clamp(110px, 17svh, 170px) var(--gutter) clamp(36px, 7svh, 72px);
+  pointer-events: none;
+  visibility: hidden;
+  /* espera a saída do texto e do véu tocar inteira antes de sumir */
+  transition: visibility 0s linear 0.95s;
+
+  --veu-onde: 0% 0%;
+  --veu-forma: 52% 50%;
+  --veu-forca: 0.46;
+}
+.marco.is-in {
+  visibility: visible;
+  transition-delay: 0s;
+}
+
+/* o véu de cada marco: mancha lisa e escura no canto do texto */
+.marco::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.9s ease-in-out;
+  background: radial-gradient(
+    var(--veu-forma) at var(--veu-onde),
+    rgb(var(--veu) / var(--veu-forca)) 0%,
+    rgb(var(--veu) / calc(var(--veu-forca) * 0.82)) 34%,
+    rgb(var(--veu) / calc(var(--veu-forca) * 0.46)) 64%,
+    rgb(var(--veu) / 0) 100%
+  );
+}
+.marco.is-in::before {
+  opacity: 1;
+}
+
+.marco__bloco {
+  position: relative;
+  display: grid;
+  justify-items: inherit;
+  max-width: min(660px, 100%);
+}
+
+.marco .rotulo {
+  margin-bottom: 18px;
+}
+.marco__titulo {
+  font-size: var(--t-voo);
+  font-weight: 300;
+  line-height: 0.98;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+.marco__titulo .linha {
+  text-wrap: balance;
+}
+.marco--hero .marco__titulo {
+  font-size: var(--t-hero);
+}
+.marco--grande .marco__titulo {
+  font-size: calc(var(--t-voo) * 1.35);
+}
+.marco__linha {
+  max-width: 34ch;
+  margin-top: 18px;
+  font-size: var(--t-linha);
+  line-height: 1.45;
+}
+.marco__acao {
+  margin-top: 28px;
+  pointer-events: auto;
+}
+
+/* entrada e saída por tempo: os que vêm esperam 18 px abaixo, os que já
+   passaram saem 12 px para cima */
+.marco .anima {
+  opacity: 0;
+  transform: translate3d(0, -12px, 0);
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+.marco.is-antes .anima {
+  transform: translate3d(0, 18px, 0);
+}
+.marco.is-in .anima {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 0.9s var(--sai) calc(0.26s + var(--i, 0) * 0.1s),
+    transform 1.1s var(--sai) calc(0.26s + var(--i, 0) * 0.1s);
+}
+.voo.is-imediato .marco,
+.voo.is-imediato .marco::before,
+.voo.is-imediato .anima {
+  transition: none !important;
+}
+
+/* onde cada marco mora */
+.marco--hero,
+.marco--alto-esq {
+  align-content: start;
+  justify-items: start;
+}
+.marco--hero {
+  --veu-forma: 64% 70%;
+  --veu-forca: 0.5;
+}
+.marco--pe-esq {
+  align-content: end;
+  justify-items: start;
+  --veu-onde: 0% 100%;
+}
+.marco--pe-dir {
+  align-content: end;
+  justify-items: end;
+  text-align: right;
+  --veu-onde: 100% 100%;
+}
+.marco--meio-esq {
+  align-content: center;
+  justify-items: start;
+  --veu-onde: 0% 50%;
+  --veu-forma: 50% 62%;
+}
+.marco--alto-centro {
+  align-content: start;
+  justify-items: center;
+  text-align: center;
+  --veu-onde: 50% 0%;
+  --veu-forma: 44% 36%;
+  --veu-forca: 0.4;
+}
+.marco--alto-dir {
+  align-content: start;
+  justify-items: end;
+  text-align: right;
+  --veu-onde: 100% 0%;
+}
+.marco--meio-dir {
+  align-content: center;
+  justify-items: end;
+  text-align: right;
+  --veu-onde: 100% 50%;
+  --veu-forma: 50% 62%;
+}
+
+/* hero: três rótulos à direita, na altura do título, com um fio à esquerda */
+.marco__lado {
+  position: absolute;
+  top: calc(clamp(110px, 17svh, 170px) + 34px);
+  right: var(--gutter);
+  display: grid;
+  gap: 14px;
+  margin: 0;
+  padding: 4px 0 4px 22px;
+  list-style: none;
+  border-left: 1px solid rgb(248 244 236 / 0.5);
+}
+
+@media (max-width: 900px) {
+  .marco__lado {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .marco {
+    padding: calc(var(--nav-alto) + 32px) var(--gutter) calc(32px + env(safe-area-inset-bottom));
+    --veu-forma: 96% 50%;
+  }
+  .marco--hero {
+    --veu-forma: 110% 58%;
+  }
+  .marco--meio-esq,
+  .marco--meio-dir {
+    align-content: end;
+    --veu-forma: 96% 50%;
+  }
+  .marco--meio-esq {
+    --veu-onde: 0% 100%;
+  }
+  .marco--meio-dir {
+    --veu-onde: 100% 100%;
+  }
+  .marco--alto-centro {
+    --veu-forma: 86% 34%;
+  }
+  .marco--grande .marco__titulo {
+    font-size: calc(var(--t-voo) * 1.18);
+  }
+  .marco .rotulo {
+    margin-bottom: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marco .anima,
+  .marco.is-antes .anima {
+    transform: none !important;
+  }
+}

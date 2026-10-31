@@ -1,0 +1,47 @@
+/* Loader: o nome no centro e uma linha de 1 px que enche da esquerda. */
+.carga {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 22px;
+  background: var(--palco);
+  color: var(--sobre-foto);
+  transition:
+    opacity 0.65s ease,
+    visibility 0s linear 0.65s;
+}
+.carga__marca {
+  font-size: clamp(22px, 1vw + 16px, 30px);
+  font-weight: 300;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  /* o tracking deixa um espaço depois da última letra: compensa para centrar */
+  margin-right: -0.28em;
+  transition: transform 0.65s var(--sai);
+}
+.carga__linha {
+  display: block;
+  width: 130px;
+  height: 1px;
+  overflow: hidden;
+  background: rgb(248 244 236 / 0.16);
+}
+.carga__linha b {
+  display: block;
+  height: 100%;
+  background: var(--sobre-foto);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.45s ease;
+}
+.carga.is-saindo {
+  opacity: 0;
+  visibility: hidden;
+}
+.carga.is-saindo .carga__marca {
+  transform: translateY(-10px);
+}

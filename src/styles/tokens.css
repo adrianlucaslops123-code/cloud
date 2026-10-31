@@ -1,0 +1,62 @@
+/* Tokens do site. Fora das fotos: off-white quente, preto, sem cor de acento
+   (o âmbar da madeira e das lâmpadas fica só nas fotos). */
+:root {
+  /* cor */
+  --pagina: #f1efe9;
+  --pagina-2: #e7e4dc;
+  --fio: #d4d0c6;
+  --tinta: #141412;
+  --tinta-2: #6d6a63;
+  --palco: #12100d;
+  --sobre-foto: #f8f4ec;
+  --erro: #a4452c;
+  --aco: #141412;
+  --veu: 18 14 10; /* rgb do véu dos textos sobre as fotos */
+
+  /* tipo: uma família só */
+  --fonte: 'Jost Variable', 'Jost', ui-sans-serif, system-ui, sans-serif;
+  --t-hero: clamp(44px, 4.6vw + 6px, 92px);
+  --t-voo: clamp(30px, 2.6vw + 8px, 60px);
+  --t-secao: clamp(34px, 2.6vw + 14px, 64px);
+  --t-nome: clamp(20px, 0.55vw + 16px, 26px);
+  --t-linha: clamp(15px, 0.3vw + 13.5px, 19px);
+  --t-texto: clamp(15px, 0.2vw + 14px, 17px);
+  --t-rotulo: 11.5px;
+
+  /* espaço */
+  --gutter: clamp(16px, 4vw, 64px);
+  --largura: 1360px;
+  --nav-alto: 76px;
+  --secao-pad: clamp(88px, 11vw, 168px);
+
+  /* movimento */
+  --sai: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* folha e janela em A (a janela copia a fachada do chalé) */
+  --janela-topo: 14svh;
+  --janela-alto: 74svh;
+  --janela-largo: min(82svh, 86vw);
+  --folha-sobe: calc(100svh + var(--janela-topo) + var(--janela-alto));
+
+  /* espessuras do aço */
+  --aco-caixilho: 8px;
+  --aco-peitoril: 14px;
+  --aco-viga: 5px;
+  --aco-montante: 4px;
+  --aco-vidro: 3px;
+}
+
+@media (max-width: 640px) {
+  :root {
+    --janela-topo: 12svh;
+    --janela-alto: 52svh;
+    --janela-largo: 84vw;
+    --nav-alto: 64px;
+    --t-hero: 46px;
+    --aco-caixilho: 6px;
+    --aco-peitoril: 10px;
+    --aco-viga: 4px;
+    --aco-montante: 3px;
+    --aco-vidro: 2px;
+  }
+}

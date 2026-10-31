@@ -1,0 +1,82 @@
+/* Rodapé preto: links enormes empilhados à esquerda; contato à direita. */
+
+.rodape {
+  padding: clamp(72px, 10vw, 140px) var(--gutter) calc(28px + env(safe-area-inset-bottom));
+  background: var(--tinta);
+  color: var(--pagina);
+}
+
+.rodape__grade {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 48px;
+  max-width: var(--largura);
+  margin: 0 auto;
+}
+
+.rodape__links {
+  display: grid;
+  justify-items: start;
+}
+.rodape__links a {
+  font-size: clamp(48px, 7vw, 132px);
+  font-weight: 300;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  transition:
+    opacity 0.5s var(--sai),
+    transform 0.6s var(--sai);
+}
+html:not(.is-scrolling) .rodape__links:hover a {
+  opacity: 0.32;
+}
+html:not(.is-scrolling) .rodape__links a:hover {
+  opacity: 1;
+  transform: translateX(12px);
+}
+
+.rodape__info {
+  display: grid;
+  gap: 32px;
+  min-width: 220px;
+  padding-bottom: 14px;
+}
+.rodape__bloco .rotulo {
+  color: rgb(241 239 233 / 0.55);
+}
+.rodape__bloco ul {
+  display: grid;
+  gap: 6px;
+  margin-top: 12px;
+  padding: 0;
+  list-style: none;
+}
+
+.rodape__base {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px 24px;
+  max-width: var(--largura);
+  margin: clamp(56px, 8vw, 120px) auto 0;
+  padding-top: 22px;
+  border-top: 1px solid rgb(241 239 233 / 0.16);
+  font-size: 13px;
+  color: rgb(241 239 233 / 0.6);
+}
+.rodape__marca {
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--pagina);
+}
+
+@media (max-width: 760px) {
+  .rodape__grade {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+  .rodape__base {
+    flex-direction: column;
+  }
+}

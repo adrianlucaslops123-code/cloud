@@ -1,0 +1,85 @@
+/* Nav fixa em três colunas. Clara sobre o voo; quando a folha passa por
+   baixo, ganha o fundo da página e um fio, e o texto fica escuro. */
+.nav {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 50;
+  height: var(--nav-alto);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 24px;
+  padding: 0 var(--gutter);
+  color: var(--sobre-foto);
+  border-bottom: 1px solid transparent;
+  transition:
+    background-color 0.45s ease,
+    color 0.45s ease,
+    border-color 0.45s ease;
+}
+.nav.is-clara {
+  background: var(--pagina);
+  color: var(--tinta);
+  border-bottom-color: var(--fio);
+}
+
+.nav__marca {
+  justify-self: start;
+  font-size: 22px;
+  font-weight: 300;
+  letter-spacing: 0.26em;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.nav__links {
+  display: flex;
+  gap: clamp(20px, 2.6vw, 44px);
+}
+.nav__links a {
+  font-size: var(--t-rotulo);
+  font-weight: 450;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.nav__botao {
+  justify-self: end;
+  min-height: 42px;
+}
+/* sobre a página clara, o botão de fio enche de escuro */
+html:not(.is-scrolling) .nav.is-clara .botao--fio:hover {
+  background: var(--tinta);
+  border-color: var(--tinta);
+  color: var(--pagina);
+}
+
+@media (max-width: 1080px) {
+  .nav__links {
+    gap: 22px;
+  }
+  .nav__marca {
+    font-size: 19px;
+    letter-spacing: 0.22em;
+  }
+}
+@media (max-width: 900px) {
+  .nav {
+    grid-template-columns: 1fr auto;
+  }
+  .nav__links {
+    display: none;
+  }
+}
+@media (max-width: 420px) {
+  .nav__marca {
+    font-size: 15px;
+    letter-spacing: 0.2em;
+  }
+  .nav__botao {
+    min-height: 38px;
+    padding: 0 14px;
+    letter-spacing: 0.16em;
+  }
+}

@@ -1,0 +1,123 @@
+/* Lá fora: grade de três células com fio de 1 px em volta e entre elas e
+   quadradinhos pretos de 7 px nos oito cruzamentos. */
+
+.fora {
+  padding: var(--secao-pad) 0;
+  background: var(--pagina);
+  border-top: 1px solid var(--fio);
+}
+
+.fora__grade {
+  position: relative;
+  max-width: calc(var(--largura) + 2 * var(--gutter));
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.fora__lista {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border: 1px solid var(--fio);
+}
+.fora__celula + .fora__celula {
+  border-left: 1px solid var(--fio);
+}
+
+.fora__link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: clamp(16px, 1.6vw, 24px);
+}
+.fora__foto {
+  display: block;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  margin-bottom: 24px;
+  background: var(--pagina-2);
+}
+.fora__foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s var(--sai);
+}
+html:not(.is-scrolling) .fora__link:hover .fora__foto img {
+  transform: scale(1.04);
+}
+
+.fora__num {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: var(--tinta-2);
+}
+.fora__nome {
+  margin-top: 6px;
+  font-size: var(--t-nome);
+  line-height: 1.2;
+}
+.fora__dados {
+  margin-top: 6px;
+  font-size: 15px;
+  color: var(--tinta-2);
+}
+.fora__chamada {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.8em;
+  margin-top: auto;
+  padding-top: 26px;
+}
+.fora__chamada .seta {
+  display: inline-block;
+  transition: transform 0.45s var(--sai);
+}
+html:not(.is-scrolling) .fora__link:hover .sublinha,
+.fora__link:focus-visible .sublinha {
+  background-size: 100% 1px;
+}
+html:not(.is-scrolling) .fora__link:hover .seta,
+.fora__link:focus-visible .seta {
+  transform: translateX(4px);
+}
+.fora__link:focus-visible {
+  outline-offset: -6px;
+}
+
+.fora__nos {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--gutter);
+  right: var(--gutter);
+  pointer-events: none;
+}
+.fora__no {
+  position: absolute;
+  left: calc(var(--col) * (100% - 1px) / 3 - 3px);
+  width: 7px;
+  height: 7px;
+  background: var(--tinta);
+}
+.fora__no--cima {
+  top: -3px;
+}
+.fora__no--baixo {
+  bottom: -3px;
+}
+
+@media (max-width: 760px) {
+  .fora__lista {
+    grid-template-columns: 1fr;
+  }
+  .fora__celula + .fora__celula {
+    border-left: 0;
+    border-top: 1px solid var(--fio);
+  }
+  .fora__nos {
+    display: none;
+  }
+}

@@ -1,0 +1,249 @@
+/* Base: reset, tipo, rótulo, botões, links, foco. Tudo quadrado: canto vivo,
+   fios de 1 px, nenhuma pílula. Hover só acende com a página parada
+   (html:not(.is-scrolling)). */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--palco);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scrollbar-width: none;
+}
+html::-webkit-scrollbar {
+  display: none;
+}
+html.is-carregando {
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  background: var(--pagina);
+  color: var(--tinta);
+  font-family: var(--fonte);
+  font-size: var(--t-texto);
+  font-weight: 400;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+ol,
+dl,
+dd,
+figure {
+  margin: 0;
+}
+h1,
+h2,
+h3 {
+  font-weight: inherit;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+img,
+svg,
+canvas {
+  display: block;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+button,
+input {
+  font: inherit;
+  color: inherit;
+}
+[hidden] {
+  display: none !important;
+}
+::selection {
+  background: var(--tinta);
+  color: var(--pagina);
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* foco visível em tudo, contorno de 1 px */
+:focus-visible {
+  outline: 1px solid currentColor;
+  outline-offset: 4px;
+}
+:focus:not(:focus-visible) {
+  outline: none;
+}
+section:focus,
+footer:focus {
+  outline: none;
+}
+
+.sr {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* rótulo: caixa alta pequena */
+.rotulo {
+  font-size: var(--t-rotulo);
+  font-weight: 450;
+  letter-spacing: 0.24em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+/* título em linhas ("a / b" vira uma linha por <span>) */
+.linha {
+  display: block;
+}
+
+/* botões retangulares */
+.botao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9em;
+  min-height: 48px;
+  padding: 0 22px;
+  border: 1px solid transparent;
+  border-radius: 0;
+  background: none;
+  font-size: 12px;
+  font-weight: 450;
+  letter-spacing: 0.2em;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease,
+    border-color 0.35s ease,
+    transform 0.25s var(--sai);
+}
+.botao .seta {
+  display: inline-block;
+  transition: transform 0.45s var(--sai);
+}
+html:not(.is-scrolling) .botao:hover .seta,
+.botao:focus-visible .seta {
+  transform: translateX(4px);
+}
+.botao:active {
+  transform: scale(0.97);
+}
+
+.botao--claro {
+  background: var(--sobre-foto);
+  color: var(--tinta);
+}
+html:not(.is-scrolling) .botao--claro:hover {
+  background: #fff;
+}
+
+.botao--fio {
+  border-color: currentColor;
+  color: inherit;
+}
+html:not(.is-scrolling) .botao--fio:hover {
+  background: var(--sobre-foto);
+  border-color: var(--sobre-foto);
+  color: var(--tinta);
+}
+
+.botao--escuro {
+  background: var(--tinta);
+  color: var(--pagina);
+}
+html:not(.is-scrolling) .botao--escuro:hover {
+  background: #2c2b27;
+}
+
+/* link com fio de 1 px que desenha da esquerda */
+.sublinha {
+  padding-bottom: 2px;
+  background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
+  transition: background-size 0.5s var(--sai);
+}
+html:not(.is-scrolling) .sublinha:hover,
+.sublinha:focus-visible {
+  background-size: 100% 1px;
+}
+
+/* pular as fotos (aparece só com o teclado) */
+.pular {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 120;
+  padding: 12px 16px;
+  background: var(--sobre-foto);
+  color: var(--tinta);
+  font-size: var(--t-rotulo);
+  font-weight: 450;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  transform: translateY(-160%);
+  transition: transform 0.3s var(--sai);
+}
+.pular:focus-visible {
+  transform: none;
+}
+
+/* barra de rolagem própria (barra.js) */
+.barra {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 90;
+  width: 14px;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  mix-blend-mode: difference;
+  pointer-events: none;
+}
+.barra.is-visivel {
+  opacity: 1;
+}
+.barra i {
+  position: absolute;
+  top: 0;
+  right: 3px;
+  width: 3px;
+  background: #bdb8ad;
+  pointer-events: auto;
+  cursor: grab;
+  transition: width 0.2s ease;
+}
+.barra.is-visivel i:hover,
+html.is-arrastando .barra i {
+  width: 5px;
+}
+html.is-arrastando,
+html.is-arrastando * {
+  cursor: grabbing !important;
+  user-select: none;
+}

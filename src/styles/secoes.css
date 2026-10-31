@@ -1,0 +1,67 @@
+/* Topo das seções depois do voo: título à esquerda, parágrafo à direita,
+   alinhado à base do título. E a entrada de tudo que tem .entra. */
+
+.titulo-secao {
+  font-size: var(--t-secao);
+  font-weight: 300;
+  line-height: 0.98;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+.titulo-secao--centro {
+  text-align: center;
+}
+
+.secao__topo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: end;
+  gap: 28px var(--gutter);
+  max-width: calc(var(--largura) + 2 * var(--gutter));
+  margin: 0 auto clamp(40px, 5.5vw, 76px);
+  padding: 0 var(--gutter);
+}
+.secao__texto {
+  justify-self: end;
+  max-width: 42ch;
+  color: var(--tinta-2);
+}
+
+@media (max-width: 760px) {
+  .secao__topo {
+    grid-template-columns: 1fr;
+  }
+  .secao__texto {
+    justify-self: start;
+  }
+}
+
+/* entrada ao chegar na tela: fade e subida de 24 px */
+.entra {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0);
+  transition:
+    opacity 1s var(--sai),
+    transform 1.2s var(--sai);
+}
+.entra.is-in {
+  opacity: 1;
+  transform: none;
+}
+.entra--foto {
+  transform: none;
+}
+.entra--foto img {
+  transform: scale(1.06);
+  transition: transform 1.8s var(--sai);
+}
+.entra--foto.is-in img {
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .entra,
+  .entra--foto img {
+    transform: none !important;
+  }
+}
