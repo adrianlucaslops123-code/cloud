@@ -48,3 +48,11 @@ vídeo sem mexer no `voo.js`: ele só pede `desenhar(t, cena)`.
 - Capacidade, camas, horários, estadia mínima, pets, se a jacuzzi é aquecida.
 - Fotos originais em alta resolução: as atuais vêm de prints do app
   (≈1060 px de largura) e perdem nitidez em telas grandes.
+
+## Publicar na Vercel
+
+1. Em vercel.com, **Add New → Project** e importe o repositório do GitHub.
+2. Framework: Vite (detectado). Build `npm run build`, saída `dist` (já em `vercel.json`).
+3. Em **Settings → Git**, escolha a branch de produção.
+4. **Deploy**. O endereço grátis sai como `nome.vercel.app`.
+5. Domínio próprio: **Settings → Domains → Add**, e siga os registros DNS que a Vercel mostrar.
