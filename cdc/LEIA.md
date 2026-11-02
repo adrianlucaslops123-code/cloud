@@ -80,6 +80,8 @@ src/
 ## Fonte do conteúdo
 
 Tudo veio das páginas de cdccursos.com.br (início, A CDC, treinamentos, cursos oferecidos,
-material, hospedagem, mural, depoimentos, contato, área do aluno). As fotos da escola são as
-12 fotos enviadas pela CDC (uma 13ª, quase igual a outra, ficou de fora). As fotos de banco de imagem do modelo Wix
+material, hospedagem, mural, depoimentos, contato, área do aluno). As fotos do carrossel
+"Conheça nosso CT de Treinamento" são as fotos enviadas pela CDC: 10 de 11 (a da bancada da cozinha,
+tirada a ~45°, ficou de fora); o quarto, a cozinha e a air fryer foram endireitados (−14°, −6°, −10°)
+com o maior recorte reto possível, sem esticar. As fotos de banco de imagem do modelo Wix
 (pessoas na página de depoimentos e de equipe) não foram usadas.

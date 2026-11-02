@@ -111,15 +111,17 @@
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor;
   mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
 }
+.recursos--dois { grid-template-columns: repeat(2, minmax(0, 1fr)) }
 .recurso__icone { width: 44px; height: 44px; fill: none; stroke: var(--brasa); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round }
 .recurso h3 { font: 720 var(--t-h3)/1.1 var(--display); font-stretch: 106% }
 .recurso ul { display: grid; gap: 10px; color: var(--texto-2); font-size: 15px }
 .recurso li { padding-left: 18px; position: relative }
 .recurso li::before { content: ''; position: absolute; left: 0; top: 0.62em; width: 8px; height: 2px; background: var(--revenido) }
-@media (max-width: 900px) { .recursos { grid-template-columns: 1fr } }
+@media (max-width: 900px) { .recursos, .recursos--dois { grid-template-columns: 1fr } }
 
 /* ---------- estrutura ---------- */
 .estrutura__topo { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: clamp(32px, 6vw, 96px); align-items: center }
+.estrutura__texto .secao__intro + .secao__intro { margin-top: 14px }
 .estrutura__itens { margin-top: 32px; display: grid; gap: 14px; max-width: 52ch }
 .estrutura__itens li { position: relative; padding: 0 0 14px 30px; border-bottom: 1px solid var(--fio); color: var(--texto) }
 .estrutura__itens li::before { content: ''; position: absolute; left: 0; top: 0.55em; width: 12px; height: 12px; border-radius: 50%; background: radial-gradient(circle, var(--brasa-quente), var(--brasa) 55%, transparent 60%); box-shadow: 0 0 12px rgba(251, 120, 30, 0.6) }
@@ -131,6 +133,7 @@
 .rota__no text { fill: var(--texto); font: 700 15px var(--display); font-stretch: 112%; letter-spacing: 0.06em }
 .rota__dist { fill: var(--brasa-quente); font: 500 13px var(--mono) }
 .rota figcaption { margin-top: 10px; font: 500 12px/1.4 var(--mono); letter-spacing: 0.06em; color: var(--texto-2) }
+.rota__texto { display: block; margin-bottom: 8px; font: 400 15px/1.5 var(--ui); letter-spacing: 0; color: var(--texto) }
 @media (max-width: 900px) { .estrutura__topo { grid-template-columns: 1fr } }
 
 /* fita de fotos */

@@ -91,7 +91,8 @@ html.portal-aberto .grao, html.portal-aberto .cursor, html.portal-aberto .cordao
 :where(html:not(.toque)) .continuar:hover .continuar__seta { translate: 6px 0 }
 
 .biblioteca__materiais { margin-top: 26px; display: grid; gap: 16px }
-.material {
+/* escopo na biblioteca: a seção 05 da página também se chama .material */
+.biblioteca .material {
   display: grid; grid-template-columns: clamp(110px, 16vw, 190px) minmax(0, 1fr); gap: clamp(16px, 2.4vw, 30px);
   padding: clamp(14px, 2vw, 22px); border-radius: var(--r-cartao); background: var(--aco-1); box-shadow: inset 0 0 0 1px var(--fio);
 }
@@ -102,7 +103,7 @@ html.portal-aberto .grao, html.portal-aberto .cursor, html.portal-aberto .cordao
 .material__info { display: flex; flex-direction: column; min-width: 0 }
 .material__prova { display: flex; flex-wrap: wrap; gap: 4px 12px; font: 500 12px/1.3 var(--mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--brasa-quente) }
 .material__prova span { color: var(--texto-2); letter-spacing: 0.04em }
-.material h3 { margin-top: 8px; font: 740 clamp(22px, 2.4vw, 34px)/1.05 var(--display); font-stretch: 108%; letter-spacing: -0.015em; text-wrap: balance }
+.biblioteca .material h3 { margin-top: 8px; font: 740 clamp(22px, 2.4vw, 34px)/1.05 var(--display); font-stretch: 108%; letter-spacing: -0.015em; text-wrap: balance }
 .material__resumo { margin-top: 10px; max-width: 62ch; color: var(--texto-2); font-size: 15px }
 .material__meta { margin-top: 10px; font: 500 12px/1.4 var(--mono); color: var(--texto-3) }
 .material__progresso { margin-top: 14px; display: grid; gap: 6px; max-width: 420px }
