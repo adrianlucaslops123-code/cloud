@@ -40,6 +40,31 @@ npm run build:artefato   # gera cdc/dist-artefato/ (bibliotecas pelo CDN; usado 
 | Som | `src/motor/som.js` |
 | Fotos | `public/fotos/*.webp` |
 
+## Área do aluno (ambiente próprio)
+
+Nenhum botão da área do aluno leva ao site antigo. "Material" e "Vídeos" abrem um ambiente
+dentro do site; só "Faça seu login" segue para a Kiwify.
+
+- **Biblioteca** (`#area-comum`): os 3 materiais, "continue de onde parou", busca em todos eles.
+- **Leitor de PDF** (`#ler-<id>`, ex.: `#ler-apostila-teorica-p165`): páginas em rolagem contínua,
+  texto selecionável, zoom, ir para página, sumário, miniaturas, busca no documento, teclado
+  (← → + − Home End, Ctrl+F), e lembra a última página de cada aluno (no navegador dele).
+- **Vídeos** (`#area-comum-videos`): vazio por enquanto (a página de vídeos do site antigo não tinha
+  nenhum vídeo). Para incluir, preencha `VIDEOS` em `src/aluno/materiais.js`.
+
+### Adicionar ou trocar um material
+
+1. Coloque o PDF em `public/materiais/` e (opcional) a capa em `public/materiais/capas/<id>.webp`.
+2. Acrescente o item em `MATERIAIS` (`src/aluno/materiais.js`), com páginas, sumário e atalho.
+3. Para a busca, gere o texto das páginas em `public/materiais/indice.json`
+   (`pdftotext -layout arquivo.pdf -` separa as páginas por `\f`). PDF escaneado não tem texto:
+   marque `pesquisavel: false`.
+
+O leitor usa o pdf.js 5.7.284 (versão "legacy", que funciona também em celulares mais antigos).
+O worker e as fontes padrão ficam em `public/vendor/pdfjs/`. No worker, os caracteres de controle
+crus foram escritos como `\xNN` (mesmo valor para o JavaScript) para o arquivo poder ser publicado
+como texto. No artefato as fontes `.pfb` não são servidas; no site de verdade elas vão junto.
+
 ## Estrutura do código
 
 ```
@@ -48,12 +73,13 @@ src/
   fogo/              particulas.js (logo 3D + calor + faíscas), brasas.js (fundo do fecho)
   motor/             rolagem, texto, interacao (cursor, magnético, inclinar), som, carga
   cenas/             hero, provas, estrutura, depoimentos, contato (form, dúvidas, menu, fecho)
-  estilo/            tokens, base, topo, secoes, provas, fim
+  aluno/             materiais (cadastro), portal (área do aluno), leitor (PDF), busca
+  estilo/            tokens, base, topo, secoes, provas, fim, aluno
 ```
 
 ## Fonte do conteúdo
 
 Tudo veio das páginas de cdccursos.com.br (início, A CDC, treinamentos, cursos oferecidos,
-material, hospedagem, mural, depoimentos, contato, área do aluno). As fotos são as fotos
-reais do centro de treinamento que estão no site. As fotos de banco de imagem do modelo Wix
+material, hospedagem, mural, depoimentos, contato, área do aluno). As fotos da escola são as
+12 fotos enviadas pela CDC (uma 13ª, quase igual a outra, ficou de fora). As fotos de banco de imagem do modelo Wix
 (pessoas na página de depoimentos e de equipe) não foram usadas.

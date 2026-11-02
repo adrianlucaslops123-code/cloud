@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="./src/estilo/secoes.css" />
     <link rel="stylesheet" href="./src/estilo/provas.css" />
     <link rel="stylesheet" href="./src/estilo/fim.css" />
+    <link rel="stylesheet" href="./src/estilo/aluno.css" />
     <style>
       html { background: #07090c; color-scheme: dark }
     </style>
@@ -147,8 +148,8 @@
             </article>
             <article class="credencial" data-inclinar data-surgir>
               <header class="credencial__topo"><span>Instrutora</span><span class="credencial__chip" aria-hidden="true"></span></header>
-              <h3>Rozilene Ribeiro</h3>
-              <p>Inspetora de Soldagem Nível 1, certificada pela FBTS e pelo SENAI.</p>
+              <h3>Rozilene Ribeiro <span class="credencial__apelido">(Rose)</span></h3>
+              <p>Inspetora de Soldagem Nível 1, certificada pela FBTS e pelo SENAI. É com ela que você agenda o seu treinamento.</p>
               <ul class="credencial__registros">
                 <li><b>IS 8176 N1</b><span>FBTS</span></li>
                 <li><b>IS 1426 N1</b><span>SENAI</span></li>
@@ -477,14 +478,18 @@
 
         <div class="filme" aria-label="Fotos do centro de treinamento">
           <div class="filme__trilho">
-            <figure class="filme__quadro"><div class="filme__foto"><img src="./fotos/sala-treinamento.webp" width="432" height="324" alt="Sala de treinamento da CDC com alunos nas bancadas" loading="lazy" decoding="async" /></div><figcaption><span>01</span>Sala de treinamento</figcaption></figure>
-            <figure class="filme__quadro"><div class="filme__foto"><img src="./fotos/visual-dimensional.webp" width="432" height="324" alt="Bancada com corpos de prova, lupa e instrumentos de medição" loading="lazy" decoding="async" /></div><figcaption><span>02</span>Bancada de visual e dimensional</figcaption></figure>
-            <figure class="filme__quadro"><div class="filme__foto"><img src="./fotos/corpos-de-prova.webp" width="432" height="324" alt="Fileira de corpos de prova soldados" loading="lazy" decoding="async" /></div><figcaption><span>03</span>Corpos de prova com descontinuidades</figcaption></figure>
-            <figure class="filme__quadro"><div class="filme__foto"><img src="./fotos/estufa-secagem.webp" width="432" height="324" alt="Estufa de secagem de eletrodos com a marca da CDC" loading="lazy" decoding="async" /></div><figcaption><span>04</span>Estufa de secagem</figcaption></figure>
-            <figure class="filme__quadro"><div class="filme__foto"><img src="./fotos/estufa-manutencao.webp" width="432" height="324" alt="Estufa de manutenção de secagem de eletrodos" loading="lazy" decoding="async" /></div><figcaption><span>05</span>Estufa de manutenção</figcaption></figure>
-            <figure class="filme__quadro"><div class="filme__foto"><img src="./fotos/dureza.webp" width="432" height="324" alt="Aluno preparando a superfície do corpo de prova, com faíscas" loading="lazy" decoding="async" /></div><figcaption><span>06</span>Preparação para a dureza</figcaption></figure>
-            <figure class="filme__quadro"><div class="filme__foto"><img src="./fotos/bancada.webp" width="481" height="344" alt="Aluno na bancada de prática do centro de treinamento" loading="lazy" decoding="async" /></div><figcaption><span>07</span>Bancadas de prática</figcaption></figure>
-            <figure class="filme__quadro"><div class="filme__foto"><img src="./fotos/cdc-em-solda.webp" width="432" height="324" alt="As letras CDC escritas com cordões de solda numa chapa" loading="lazy" decoding="async" /></div><figcaption><span>08</span>CDC em cordões de solda</figcaption></figure>
+            <figure class="filme__quadro"><div class="filme__foto" style="--ar: 780 / 1040"><img src="./fotos/sala-de-aula.webp" width="780" height="1040" alt="Sala de aula com carteiras e a placa da CDC na parede" loading="lazy" decoding="async" /></div><figcaption><span>01</span>Sala de aula com a placa da CDC</figcaption></figure>
+            <figure class="filme__quadro"><div class="filme__foto" style="--ar: 780 / 1040"><img src="./fotos/computadores.webp" width="780" height="1040" alt="Sala com computadores para os simulados no computador" loading="lazy" decoding="async" /></div><figcaption><span>02</span>Computadores para os simulados</figcaption></figure>
+            <figure class="filme__quadro"><div class="filme__foto" style="--ar: 780 / 1040"><img src="./fotos/estacoes-de-simulado.webp" width="780" height="1040" alt="Estações com monitores e teclados para os simulados" loading="lazy" decoding="async" /></div><figcaption><span>03</span>Estações de simulado</figcaption></figure>
+            <figure class="filme__quadro"><div class="filme__foto" style="--ar: 1280 / 960"><img src="./fotos/aula-teorica.webp" width="1280" height="960" alt="Mesa com notebook diante de um monitor na parede e de um quadro branco" loading="lazy" decoding="async" /></div><figcaption><span>04</span>Aula teórica: monitor e quadro</figcaption></figure>
+            <figure class="filme__quadro"><div class="filme__foto" style="--ar: 780 / 1040"><img src="./fotos/monitor-e-quadro.webp" width="780" height="1040" alt="Monitor na parede ao lado do quadro branco" loading="lazy" decoding="async" /></div><figcaption><span>05</span>Monitor e quadro branco</figcaption></figure>
+            <figure class="filme__quadro"><div class="filme__foto" style="--ar: 780 / 1040"><img src="./fotos/sala-teorica.webp" width="780" height="1040" alt="Sala com mesa, notebook, impressora e monitor na parede" loading="lazy" decoding="async" /></div><figcaption><span>06</span>Sala teórica</figcaption></figure>
+            <figure class="filme__quadro"><div class="filme__foto" style="--ar: 1040 / 1040"><img src="./fotos/mesa-do-instrutor.webp" width="1040" height="1040" alt="Mesa com computador e impressora, monitor na parede e quadro branco" loading="lazy" decoding="async" /></div><figcaption><span>07</span>Mesa do instrutor</figcaption></figure>
+            <figure class="filme__quadro"><div class="filme__foto" style="--ar: 780 / 1040"><img src="./fotos/estufa-de-secagem.webp" width="780" height="1040" alt="Estufa de secagem aberta, com eletrodos sobre a grade" loading="lazy" decoding="async" /></div><figcaption><span>08</span>Estufa de secagem com eletrodos</figcaption></figure>
+            <figure class="filme__quadro"><div class="filme__foto" style="--ar: 780 / 1040"><img src="./fotos/estufa-e-termometro.webp" width="780" height="1040" alt="Estufa verde com termômetro de mostrador em cima" loading="lazy" decoding="async" /></div><figcaption><span>09</span>Estufa com termômetro</figcaption></figure>
+            <figure class="filme__quadro"><div class="filme__foto" style="--ar: 780 / 1040"><img src="./fotos/corredor-das-estufas.webp" width="780" height="1040" alt="Corredor com uma estufa de aço em primeiro plano e outra estufa ao fundo" loading="lazy" decoding="async" /></div><figcaption><span>10</span>Corredor das estufas</figcaption></figure>
+            <figure class="filme__quadro"><div class="filme__foto" style="--ar: 780 / 1040"><img src="./fotos/estufas-e-consumiveis.webp" width="780" height="1040" alt="Corredor com estufa verde e caixas de consumíveis empilhadas" loading="lazy" decoding="async" /></div><figcaption><span>11</span>Estufas e consumíveis</figcaption></figure>
+            <figure class="filme__quadro"><div class="filme__foto" style="--ar: 780 / 1040"><img src="./fotos/consumiveis.webp" width="780" height="1040" alt="Prateleiras com caixas de eletrodos e um carretel de arame" loading="lazy" decoding="async" /></div><figcaption><span>12</span>Eletrodos e consumíveis</figcaption></figure>
           </div>
         </div>
       </section>
@@ -516,22 +521,45 @@
         </div>
       </section>
 
-      <!-- 09 · ÁREA DO ALUNO -->
+      <!-- 09 · ÁREA DO ALUNO: abre o ambiente próprio (portal); só o login vai para a Kiwify -->
       <section class="secao aluno" id="area-do-aluno" aria-labelledby="aluno-titulo">
         <div class="secao__miolo">
           <p class="rotulo" data-surgir><span>08</span>Área do aluno</p>
           <h2 class="titulo titulo--menor" id="aluno-titulo" data-titulo>Apostilas, vídeos e exercícios.</h2>
+          <p class="secao__intro" data-surgir>Os materiais da área comum abrem aqui mesmo no site: leia, pesquise em todos eles e continue de onde parou.</p>
+          <form class="aluno__busca" role="search" data-surgir>
+            <label class="sr" for="busca-secao">Pesquisar nos materiais</label>
+            <input id="busca-secao" type="search" placeholder="Pesquisar nos materiais: dureza, eletrodo, simbologia…" autocomplete="off" />
+            <button class="botao botao--brasa" type="submit">Pesquisar</button>
+          </form>
           <div class="acessos">
-            <a class="acesso" href="https://www.cdccursos.com.br/area-do-aluno-material/area-comum" target="_blank" rel="noopener" data-luz data-surgir data-cursor="Abrir">
-              <span class="acesso__tipo">Área comum</span><b>Vídeos</b><span class="acesso__seta" aria-hidden="true">↗</span>
+            <a class="acesso" href="#area-comum-videos" data-luz data-surgir data-cursor="Abrir">
+              <span class="acesso__tipo">Área comum</span><b>Vídeos</b><span class="acesso__seta" aria-hidden="true">→</span>
             </a>
-            <a class="acesso" href="https://www.cdccursos.com.br/material" target="_blank" rel="noopener" data-luz data-surgir data-cursor="Abrir">
-              <span class="acesso__tipo">Área comum</span><b>Material</b><span class="acesso__seta" aria-hidden="true">↗</span>
+            <a class="acesso" href="#area-comum" data-luz data-surgir data-cursor="Abrir">
+              <span class="acesso__tipo">Área comum</span><b>Material</b><span class="acesso__seta" aria-hidden="true">→</span>
             </a>
             <a class="acesso acesso--curso" href="https://dashboard.kiwify.com.br/login" target="_blank" rel="noopener" data-luz data-surgir data-cursor="Entrar">
               <span class="acesso__tipo">Área do curso</span><b>Faça seu login</b><span class="acesso__seta" aria-hidden="true">↗</span>
             </a>
           </div>
+          <ul class="estante" aria-label="Materiais da área comum">
+            <li data-surgir><a class="estante__item" href="./materiais/apostila-teorica.pdf" data-abrir-material="apostila-teorica" data-cursor="Ler">
+              <img src="./materiais/capas/apostila-teorica.webp" alt="" width="72" height="93" loading="lazy" decoding="async" />
+              <span class="estante__texto"><small>Prova teórica · questões + gabarito</small><b>Apostila teórica</b><span>168 páginas</span></span>
+              <i class="estante__lido" data-progresso-de="apostila-teorica" hidden></i><span class="estante__ler">Ler</span>
+            </a></li>
+            <li data-surgir><a class="estante__item" href="./materiais/procedimento-recertificacao.pdf" data-abrir-material="procedimento-recertificacao" data-cursor="Ler">
+              <img src="./materiais/capas/procedimento-recertificacao.webp" alt="" width="72" height="101" loading="lazy" decoding="async" />
+              <span class="estante__texto"><small>Recertificação · IB-024 FBTS</small><b>Procedimento de recertificação</b><span>39 páginas</span></span>
+              <i class="estante__lido" data-progresso-de="procedimento-recertificacao" hidden></i><span class="estante__ler">Ler</span>
+            </a></li>
+            <li data-surgir><a class="estante__item" href="./materiais/procedimentos-provas-praticas.pdf" data-abrir-material="procedimentos-provas-praticas" data-cursor="Ler">
+              <img src="./materiais/capas/procedimentos-provas-praticas.webp" alt="" width="72" height="102" loading="lazy" decoding="async" />
+              <span class="estante__texto"><small>Prova prática · consumíveis e estufas</small><b>Procedimentos de provas práticas</b><span>5 páginas</span></span>
+              <i class="estante__lido" data-progresso-de="procedimentos-provas-praticas" hidden></i><span class="estante__ler">Ler</span>
+            </a></li>
+          </ul>
         </div>
       </section>
 
@@ -565,7 +593,7 @@
             </details>
             <details class="pergunta" data-surgir>
               <summary>Como acesso o material de estudo?</summary>
-              <div class="pergunta__resp"><p>Pela <a href="#area-do-aluno">Área do aluno</a>: vídeos e material na área comum, e o curso na plataforma Kiwify, com o seu login.</p></div>
+              <div class="pergunta__resp"><p>Pela <a href="#area-do-aluno">Área do aluno</a>, aqui no site: a apostila teórica, o procedimento de recertificação e os procedimentos de provas práticas abrem direto no leitor, com busca e sumário. O curso fica na plataforma Kiwify, com o seu login.</p></div>
             </details>
           </div>
         </div>
@@ -638,6 +666,94 @@
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 8.5c0 3.4 2.6 6.5 6.4 6.5l.9-1.6-2-1-1 .9a4 4 0 0 1-2.2-2.2l.9-1-1-2Z" fill="currentColor"/></svg>
       <span>Agendar com a Rose</span>
     </a>
+
+    <!-- ÁREA DO ALUNO: ambiente próprio (biblioteca + leitor de PDF) -->
+    <div class="portal" id="portal" hidden role="dialog" aria-modal="true" aria-labelledby="portal-titulo">
+      <header class="portal__topo">
+        <button class="portal__sair" type="button" data-fechar-portal><span aria-hidden="true">←</span><span class="portal__sair-txt">Voltar ao site</span></button>
+        <p class="portal__marca"><i class="logo"></i><span>Área do aluno</span></p>
+        <a class="botao botao--vidro portal__curso" data-kiwify href="https://dashboard.kiwify.com.br/login" target="_blank" rel="noopener">Área do curso <span aria-hidden="true">↗</span></a>
+      </header>
+      <div class="portal__corpo" data-lenis-prevent>
+        <section class="biblioteca">
+          <div class="biblioteca__cabeca">
+            <p class="rotulo"><span>CDC</span>Área comum</p>
+            <h2 class="biblioteca__titulo" id="portal-titulo">Materiais de estudo</h2>
+            <p class="biblioteca__intro">Apostila de questões, procedimento de recertificação e procedimentos de provas práticas. Leia aqui mesmo, pesquise em todos os materiais e continue de onde parou.</p>
+            <div class="biblioteca__abas" role="tablist" aria-label="Conteúdo da área comum">
+              <button type="button" role="tab" data-aba="materiais" aria-selected="true">Materiais <b>3</b></button>
+              <button type="button" role="tab" data-aba="videos" aria-selected="false">Vídeos <b>0</b></button>
+            </div>
+            <form class="biblioteca__busca" role="search">
+              <label class="sr" for="busca-materiais">Pesquisar nos materiais</label>
+              <input id="busca-materiais" type="search" placeholder="Pesquisar nos materiais: dureza, eletrodo, simbologia…" autocomplete="off" />
+              <button class="botao botao--brasa" type="submit">Pesquisar</button>
+            </form>
+          </div>
+          <div data-painel-de="materiais">
+            <div class="biblioteca__continuar" hidden></div>
+            <div class="biblioteca__materiais"></div>
+          </div>
+          <div class="biblioteca__resultados" hidden aria-live="polite"></div>
+          <div data-painel-de="videos" hidden>
+            <div class="vazio">
+              <svg class="vazio__icone" viewBox="0 0 48 48" aria-hidden="true"><rect x="5" y="10" width="38" height="28" rx="5"/><path d="M20 18v12l10-6z"/></svg>
+              <h3>Ainda não há vídeos na área comum.</h3>
+              <p>Os vídeos aparecem aqui assim que forem publicados. As aulas gravadas do Curso Inspetor de Soldagem Nível 1 ficam na Área do curso.</p>
+              <a class="botao botao--brasa" data-kiwify href="https://dashboard.kiwify.com.br/login" target="_blank" rel="noopener">Entrar na Área do curso <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </section>
+
+        <section class="leitor" hidden aria-label="Leitor de material">
+          <header class="leitor__barra">
+            <button class="leitor__voltar" type="button" data-voltar><span aria-hidden="true">←</span><span class="leitor__voltar-txt">Materiais</span></button>
+            <div class="leitor__nome"><b class="leitor__titulo"></b><span class="leitor__codigo"></span></div>
+            <div class="leitor__grupo leitor__paginacao">
+              <button type="button" data-pag="-1" aria-label="Página anterior">‹</button>
+              <label class="leitor__pag"><input class="leitor__num" type="number" min="1" value="1" inputmode="numeric" aria-label="Página atual" /><span class="leitor__total">/ 0</span></label>
+              <button type="button" data-pag="1" aria-label="Próxima página">›</button>
+            </div>
+            <div class="leitor__grupo leitor__zoom">
+              <button type="button" data-zoom="-1" aria-label="Diminuir o zoom">−</button>
+              <button type="button" data-zoom="0" class="leitor__ajuste" aria-label="Ajustar à largura">100%</button>
+              <button type="button" data-zoom="1" aria-label="Aumentar o zoom">+</button>
+            </div>
+            <div class="leitor__grupo leitor__ferramentas">
+              <button type="button" data-painel="sumario" aria-pressed="false">Sumário</button>
+              <button type="button" data-painel="busca" aria-pressed="false">Buscar</button>
+              <a class="leitor__abrir" href="#" target="_blank" rel="noopener">Abrir PDF <span aria-hidden="true">↗</span></a>
+              <a class="leitor__baixar" href="#">Baixar</a>
+            </div>
+          </header>
+          <div class="leitor__miolo">
+            <aside class="leitor__painel" hidden data-lenis-prevent>
+              <div class="painel__topo">
+                <div class="painel__abas" role="tablist" aria-label="Navegação do material">
+                  <button type="button" role="tab" data-painel-aba="sumario">Sumário</button>
+                  <button type="button" role="tab" data-painel-aba="paginas">Páginas</button>
+                  <button type="button" role="tab" data-painel-aba="busca">Buscar</button>
+                </div>
+                <button type="button" class="painel__fechar" aria-label="Fechar o painel">×</button>
+              </div>
+              <div class="painel__sumario"><button type="button" class="painel__atalho" hidden></button><ol></ol></div>
+              <div class="painel__paginas" hidden></div>
+              <div class="painel__busca" hidden>
+                <label class="sr" for="busca-documento">Buscar neste material</label>
+                <input id="busca-documento" type="search" placeholder="Buscar neste material" autocomplete="off" />
+                <p class="busca__info"></p>
+                <div class="busca__nav" hidden><button type="button" data-achado="-1" aria-label="Ocorrência anterior">↑</button><span class="busca__pos"></span><button type="button" data-achado="1" aria-label="Próxima ocorrência">↓</button></div>
+                <ol class="busca__lista"></ol>
+              </div>
+            </aside>
+            <div class="leitor__paginas" tabindex="0" data-lenis-prevent aria-label="Páginas do material">
+              <div class="leitor__trilho"></div>
+            </div>
+            <div class="leitor__estado" hidden><p class="leitor__msg"></p><span class="leitor__carga"><i></i></span></div>
+          </div>
+        </section>
+      </div>
+    </div>
 
     <div class="aviso" role="status" aria-live="polite"></div>
 

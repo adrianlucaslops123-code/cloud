@@ -656,6 +656,7 @@ export async function particulas({ alvo, eventos = alvo, mascara, reduzido = fal
     const dt = limitar(bruto, 1 / 240, 1 / 30)
     antes = agora
     if (!visivel || saida >= 0.999) return
+    if (document.documentElement.classList.contains('portal-aberto')) return // área do aluno por cima
     if (!comecou && !reduzido) {
       if (!pronto) {
         renderer.render(cena, camera)

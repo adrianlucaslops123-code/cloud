@@ -85,7 +85,7 @@ export function brasas({ alvo, quantidade = 140, reduzido = false }) {
     requestAnimationFrame(quadro)
     const dt = Math.min(0.05, (agora - antes) / 1000)
     antes = agora
-    if (visivel) desenhar(dt)
+    if (visivel && !document.documentElement.classList.contains('portal-aberto')) desenhar(dt)
   }
   requestAnimationFrame(quadro)
   const io = new IntersectionObserver(([e]) => {

@@ -110,8 +110,8 @@ button { font: inherit; color: inherit }
 /* ---------- cursor ---------- */
 .cursor { display: none }
 html.tem-cursor .cursor { display: block }
-html.tem-cursor, html.tem-cursor * { cursor: none !important }
-html.tem-cursor input, html.tem-cursor textarea, html.tem-cursor select { cursor: text !important }
+html.tem-cursor:not(.portal-aberto), html.tem-cursor:not(.portal-aberto) * { cursor: none !important }
+html.tem-cursor:not(.portal-aberto) input, html.tem-cursor:not(.portal-aberto) textarea, html.tem-cursor:not(.portal-aberto) select { cursor: text !important }
 .cursor__ponto, .cursor__anel {
   position: fixed; z-index: 95; left: 0; top: 0; pointer-events: none; border-radius: 50%;
 }

@@ -9,6 +9,7 @@ const CDN = {
   'gsap/SplitText': 'https://cdn.jsdelivr.net/npm/gsap@3.15.0/SplitText.js',
   'gsap/ScrambleTextPlugin': 'https://cdn.jsdelivr.net/npm/gsap@3.15.0/ScrambleTextPlugin.js',
   lenis: 'https://cdn.jsdelivr.net/npm/lenis@1.3.27/dist/lenis.mjs',
+  'pdfjs-dist/legacy/build/pdf.min.mjs': 'https://cdn.jsdelivr.net/npm/pdfjs-dist@5.7.284/legacy/build/pdf.min.mjs',
 }
 
 function bibliotecasDoCdn() {

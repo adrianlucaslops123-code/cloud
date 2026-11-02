@@ -139,9 +139,11 @@
   display: flex; gap: clamp(14px, 1.6vw, 24px); width: max-content;
   padding-left: max(var(--gutter), env(safe-area-inset-left, 0px)); padding-right: max(var(--gutter), env(safe-area-inset-right, 0px));
 }
-.filme__quadro { position: relative; width: clamp(250px, 27vw, 400px); flex: none }
+/* altura fixa na fita; a largura sai da proporção real de cada foto */
+.filme { --alto: clamp(300px, 54vh, 520px) }
+.filme__quadro { position: relative; flex: none; width: min-content }
 .filme__foto {
-  position: relative; overflow: hidden; aspect-ratio: 4 / 3; max-width: 100%; border-radius: var(--r-peca);
+  position: relative; overflow: hidden; height: var(--alto); aspect-ratio: var(--ar, 3 / 4); max-width: 86vw; border-radius: var(--r-peca);
   background: var(--aco-2); box-shadow: 0 30px 60px -36px #000;
 }
 .filme__foto img {
@@ -159,7 +161,8 @@
 @media (max-width: 760px) {
   .filme { overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; -webkit-overflow-scrolling: touch }
   .filme::-webkit-scrollbar { display: none }
-  .filme__quadro { width: 78vw; scroll-snap-align: center }
+  .filme { --alto: min(64vh, 112vw) }
+  .filme__quadro { scroll-snap-align: center }
 }
 
 /* ---------- depoimentos ---------- */

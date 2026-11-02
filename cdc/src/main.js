@@ -18,6 +18,7 @@ import { iniciarProvas } from './cenas/provas.js'
 import { iniciarEstrutura } from './cenas/estrutura.js'
 import { iniciarDepoimentos } from './cenas/depoimentos.js'
 import { iniciarInscricao, iniciarDuvidas, iniciarMenu, iniciarFecho, ajustarFecho } from './cenas/contato.js'
+import { iniciarAreaDoAluno } from './aluno/portal.js'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -95,6 +96,8 @@ abrir({ tarefas: [document.fonts.ready, logoPronto], reduzido }).then(() => {
   iniciarDuvidas({ reduzido })
   const menu = iniciarMenu({ rolagem })
   ligarRolagem({ rolagem, som, aoAncora: () => menu?.fechar() })
+  // área do aluno própria (biblioteca + leitor de PDF); no artefato não há download
+  iniciarAreaDoAluno({ rolagem, som, reduzido, artefato: import.meta.env.MODE === 'artefato' })
   brasas({ alvo: document.querySelector('.contato__palco'), reduzido })
 
   ScrollTrigger.refresh()
