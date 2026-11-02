@@ -56,3 +56,27 @@ vídeo sem mexer no `voo.js`: ele só pede `desenhar(t, cena)`.
 3. Em **Settings → Git**, escolha a branch de produção.
 4. **Deploy**. O endereço grátis sai como `nome.vercel.app`.
 5. Domínio próprio: **Settings → Domains → Add**, e siga os registros DNS que a Vercel mostrar.
+
+## Skills de Instagram (Claude Code)
+
+Em `.claude/skills/` estão as 9 skills de
+[sergebulaev/instagram-skills](https://github.com/sergebulaev/instagram-skills)
+(MIT, licença em `.claude/INSTAGRAM-SKILLS-LICENSE`; cópia do commit `550d3cf`).
+As referências compartilhadas ficam em `.claude/references/`. Elas carregam
+sozinhas em qualquer sessão do Claude Code aberta neste repositório:
+
+| Skill | Para quê |
+|---|---|
+| `instagram-marketing` | Visão geral do pacote e qual skill usar |
+| `ig-caption-writer` | Legenda com gancho nos primeiros 125 caracteres |
+| `ig-carousel-planner` | Carrossel planejado slide a slide |
+| `ig-hook-extractor` | Engenharia reversa do gancho de um Reel ou carrossel |
+| `ig-hashtag-strategist` | 3 a 5 hashtags por tamanho (nicho, médio, amplo) |
+| `ig-humanizer` | Tira marcas de texto de IA e audita antes de postar |
+| `ig-content-planner` | Semana de Reels, carrosséis e stories |
+| `ig-repurposer` | Adapta post de outra rede para o Instagram |
+| `ig-profile-optimizer` | Bio, nome e destaques do perfil |
+| `ig-audience-insights` | Lê o nicho ou um perfil (com `APIFY_TOKEN`, ou dados colados) |
+
+Publicar direto exige `PUBLORA_API_KEY`; sem ela as skills só escrevem os
+rascunhos.
