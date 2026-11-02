@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>CDC</title>
+    <!-- TROCAR: descrição da marca (aparece no Google) -->
+    <meta name="description" content="CDC — troque esta frase pela descrição da sua marca." />
+    <meta name="theme-color" content="#07070a" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <style>
+      html { background: #07070a; color-scheme: dark }
+    </style>
+  </head>
+  <body>
+    <a class="pular" href="#contato">Pular para o contato</a>
+
+    <header class="nav">
+      <a class="nav__marca" href="#inicio" aria-label="CDC, início">CDC</a>
+      <nav class="nav__links" aria-label="Seções">
+        <a href="#sobre">Sobre</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#contato">Contato</a>
+      </nav>
+      <a class="botao botao--sinal nav__cta" href="#contato">Fale com a gente</a>
+    </header>
+
+    <main>
+      <!-- HERO: as letras de partículas -->
+      <section class="hero" id="inicio" aria-labelledby="hero-titulo">
+        <h1 class="sr" id="hero-titulo">CDC</h1>
+        <div class="hero__palco" aria-hidden="true"></div>
+        <div class="hero__pe">
+          <!-- TROCAR: frase principal da marca -->
+          <p class="hero__frase">Sua marca, do tamanho que ela merece.<br /><span>Troque esta frase pela sua.</span></p>
+          <div class="hero__acoes">
+            <a class="botao botao--sinal" href="#contato">Começar agora</a>
+            <a class="botao botao--vidro" href="#sobre">Conhecer</a>
+          </div>
+        </div>
+        <p class="hero__dica" aria-hidden="true"><span class="dica--mouse">Passe o mouse · clique para espalhar</span><span class="dica--toque">Toque para espalhar</span></p>
+      </section>
+
+      <!-- TROCAR: quem é a CDC -->
+      <section class="secao" id="sobre">
+        <p class="selo"><i></i>Sobre</p>
+        <h2 class="frase">Um parágrafo curto sobre a CDC.<br /><span>O que faz, para quem e por que é diferente.</span></h2>
+        <p class="secao__p">Este espaço é para o texto da sua marca. Duas ou três frases bastam: o que vocês fazem, para quem fazem e o que a pessoa ganha escolhendo vocês.</p>
+      </section>
+
+      <!-- TROCAR: os três serviços ou diferenciais -->
+      <section class="secao" id="servicos">
+        <p class="selo"><i></i>Serviços</p>
+        <h2 class="frase">O que a CDC entrega.<br /><span>Três coisas que você faz melhor que ninguém.</span></h2>
+        <ul class="cartoes">
+          <li class="cartao"><b class="cartao__num">01</b><h3>Serviço um</h3><p>Uma frase explicando o primeiro serviço e o resultado que ele traz.</p></li>
+          <li class="cartao"><b class="cartao__num">02</b><h3>Serviço dois</h3><p>Uma frase explicando o segundo serviço e o resultado que ele traz.</p></li>
+          <li class="cartao"><b class="cartao__num">03</b><h3>Serviço três</h3><p>Uma frase explicando o terceiro serviço e o resultado que ele traz.</p></li>
+        </ul>
+      </section>
+
+      <!-- TROCAR: contato -->
+      <section class="secao secao--contato" id="contato">
+        <h2 class="contato__titulo">Vamos conversar?</h2>
+        <p class="secao__p">Deixe seu e-mail e a gente responde em até um dia útil.</p>
+        <form class="form" novalidate>
+          <label class="sr" for="email">Seu e-mail</label>
+          <input id="email" name="email" type="email" placeholder="seu@email.com" autocomplete="email" required />
+          <button class="botao botao--sinal" type="submit">Enviar</button>
+          <p class="form__msg" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="rodape">
+      <p class="rodape__marca">CDC</p>
+      <p>© 2026 CDC. Todos os direitos reservados.</p>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

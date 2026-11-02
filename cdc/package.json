@@ -1,0 +1,20 @@
+{
+  "name": "cdc-landing",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Landing page da CDC: as letras feitas de partículas que reagem ao mouse.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 5174",
+    "build": "vite build",
+    "preview": "vite preview --port 4174"
+  },
+  "dependencies": {
+    "@fontsource-variable/geist": "5.3.0",
+    "@fontsource/archivo-black": "5.3.0",
+    "three": "0.187.0"
+  },
+  "devDependencies": {
+    "vite": "8.3.5"
+  }
+}
